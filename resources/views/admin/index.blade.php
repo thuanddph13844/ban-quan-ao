@@ -1,5 +1,5 @@
 @extends('templates.layout')
-@section('title', $tieude)
+@section('title', $title)
 @section('css')
     <style>
         body {
@@ -148,26 +148,26 @@
                             <th style="width: 50px" class="text-center">
                                 #ID
                             </th>
-                            <th class="text-center">Tên người dùng</th>
-                            <th class="text-center">
-                                Email
-                            </th>
-                            <th class="text-center">Quyền</th>
-                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Tên danh mục</th>
+{{--                            <th class="text-center">--}}
+{{--                                Email--}}
+{{--                            </th>--}}
+{{--                            <th class="text-center">Quyền</th>--}}
+{{--                            <th class="text-center">Trạng thái</th>--}}
                         </tr>
 
-
+                         @foreach($danhsachdanhmuc as $item)
                             <tr>
-                                {{--                                <td><input type="checkbox" name="chk_hv[]" class="chk_hv" id="chk_hv_{{$item->id}}" value="{{$item->id}}"> </td>--}}
-                                <td class="text-center">1</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$hoten}} <i class="fa fa-edit"></i></a></td>
-                                <td class="text-center">thanghoang064@gmail.com</td>
-                                <td class="text-center">
-                                   nhân viên
-                                </td>
+
+                                <td class="text-center">{{$item -> id}}</td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a></td>
+{{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
+{{--                                <td class="text-center">--}}
+{{--                                   nhân viên--}}
+{{--                                </td>--}}
 
                             </tr>
-
+                        @endforeach
                     </table>
                 </div>
             </form>
