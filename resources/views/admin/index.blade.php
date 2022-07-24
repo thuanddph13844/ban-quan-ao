@@ -160,7 +160,7 @@
                             <tr>
                                 {{--                                <td><input type="checkbox" name="chk_hv[]" class="chk_hv" id="chk_hv_{{$item->id}}" value="{{$item->id}}"> </td>--}}
                                 <td class="text-center">1</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> Thắng <i class="fa fa-edit"></i></a></td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$hoten}} <i class="fa fa-edit"></i></a></td>
                                 <td class="text-center">thanghoang064@gmail.com</td>
                                 <td class="text-center">
                                    nhân viên
