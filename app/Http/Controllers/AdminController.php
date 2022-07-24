@@ -12,8 +12,11 @@ class AdminController extends Controller
     {
         $this->v = [];
     }
-    public function add_danh_muc($method, $parameters)
+    public function view()
     {
-
+        $this->v['tieude'] = "Admin";
+        $hoten = "Đinh Đức Thuận";
+        $this -> v ['hoten']=$hoten;
+        return view('admin.index', $this->v);
     }
 }
