@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('testAdmin','AdminController@view');
-Route::get('listdanhmuc','AdminController@loadList');
-Route::match(['get','post'],'add', 'AdminController@add') ->name('route_BackEnd_danh_mucs_Add');
-
+Route::get('danhmuc/listdanhmuc','AdminController@loadList');
+Route::match(['get','post'],'danhmuc/add', 'AdminController@add') ->name('route_BackEnd_danh_mucs_Add');
+Route::get('danhmuc/detail/{id}','AdminController@detail');

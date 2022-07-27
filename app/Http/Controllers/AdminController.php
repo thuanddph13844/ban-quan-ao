@@ -53,4 +53,12 @@ class AdminController extends Controller
         }
         return view("admin.danh-muc.add", $this->v);
     }
+    public function detail($id){
+        $this->v['_title'] = "Cập nhật danh mục";
+    $item = new danh_mucs();
+        $objItem = $item->loadOne($id);
+        // dd($objItem);
+        $this->v['objItem'] = $objItem;
+        return view("admin.danh-muc.update", $this->v);
+    }
 }

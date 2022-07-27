@@ -23,4 +23,10 @@ class danh_mucs extends Model
     $respon= DB::table($this->table) -> insertGetId($data);
     return $respon;
     }
+    public function loadOne($id, $param = null){
+        $query = DB::table($this->table)
+            ->where('id','=',$id);
+        $one =$query->first();
+        return $one;
+    }
 }
