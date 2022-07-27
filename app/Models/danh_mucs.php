@@ -18,4 +18,9 @@ class danh_mucs extends Model
         $list = $query->paginate(10);
         return $list;
     }
+    public function saveNew($param = []){
+    $data = $param['cols'];
+    $respon= DB::table($this->table) -> insertGetId($data);
+    return $respon;
+    }
 }

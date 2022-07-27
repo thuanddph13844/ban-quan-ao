@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 Route::get('testAdmin','AdminController@view');
 Route::get('listdanhmuc','AdminController@loadList');
+Route::match(['get','post'],'add', 'AdminController@add') ->name('route_BackEnd_danh_mucs_Add');
+
