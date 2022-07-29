@@ -1,3 +1,6 @@
+@php
+    $objUser =  \Illuminate\Support\Facades\Auth::user();
+@endphp
 <!DOCTYPE html>
 <html>
 <head>
@@ -152,12 +155,12 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/img/no-avartar.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs"> Thắng </span>
+                            <span class="hidden-xs"> {{$objUser ->name}} </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <p style="padding: 10px;">
-                                    <i class="fa fa-user"></i> Email: thang@gmail.com<br>
+                                    <i class="fa fa-user"></i> {{$objUser->email}}<br>
 
                                 </p>
                             </li>
@@ -185,11 +188,11 @@
                     <img src="/img/no-avartar.png" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p> Hoàng Thắng </p>
+                    <p> {{$objUser ->name}} </p>
 
                 </div>
                 <div class="clearfix">
-                    <p class="text-info">Thắng@gmail.com</p>
+                    <p class="text-info">{{$objUser->email}}</p>
                 </div>
 
             </div>
