@@ -23,6 +23,6 @@ Route::get('contact', 'AdminController@contact');
 Route::get('checkout', 'AdminController@checkout');
 Route::get('cart', 'AdminController@cart');
 Route::get('testAdmin', 'AdminController@view');
-
+//login
 Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
 Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@postLogin']);
