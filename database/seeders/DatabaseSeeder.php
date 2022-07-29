@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -122,5 +122,11 @@ class DatabaseSeeder extends Seeder
         DB::table('hoa_dons')->insert($dataBill);
         DB::table('sizes')->insert($dataSize);
         DB::table('mau_sacs')->insert($dataMau);
+        DB::table('users')->insert([
+            'name' => "Poly",
+            'email' => 'poly@gmail.com',
+
+            'password' => Hash::make('123456'),
+        ]);
     }
 }

@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('testAdmin','AdminController@view');
+
+Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
+Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@postLogin']);
