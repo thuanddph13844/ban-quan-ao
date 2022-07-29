@@ -17,6 +17,6 @@ class AdminController extends Controller
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this -> v ['hoten']=$hoten;
-        return view('admin.index', $this->v);
+        return view('templates.index', $this->v);
     }
 }
