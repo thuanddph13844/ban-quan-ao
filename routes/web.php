@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('testAdmin','AdminController@view');
-Route::get('testAdmin','AdminController@view');
+Route::get('index', 'AdminController@index');
+Route::get('shop', 'AdminController@shop');
+Route::get('detail', 'AdminController@detail');
+Route::get('contact', 'AdminController@contact');
+Route::get('checkout', 'AdminController@checkout');
+Route::get('cart', 'AdminController@cart');
