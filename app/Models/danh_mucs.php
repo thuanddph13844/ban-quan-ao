@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class danh_mucs extends Model
 {
@@ -28,5 +29,22 @@ class danh_mucs extends Model
             ->where('id','=',$id);
         $one =$query->first();
         return $one;
+    }
+    public function saveUpdate($param){
+    if (empty($param['cols']['id'])){
+        Session::flash('error', 'Không xác định bản ghi cần cập nhật');
+        return null;
+    }
+        $dataupdate=[];
+        foreach ($param['cols'] as $col => $val){
+            if($col == 'id') continue;
+            if (in_array($col,$this->fillable)){
+                $dataupdate[$col] = (strlen($val)==0)?  null:$val;
+            }
+        }
+        $res = DB::table($this->table)
+            ->where('id', $param['cols']['id'])
+            ->update($dataupdate);
+        return $res;
     }
 }

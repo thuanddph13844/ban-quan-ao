@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="form-group">
-                            <input type="text" name="search_ten_nguoi_dung" class="form-control" placeholder="Tên người dùng"
+                            <input type="text" name="search_ten_nguoi_dung" class="form-control" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -131,16 +131,16 @@
                 </div>
             @endif
         </div>
-
-            <p class="alert alert-warning">
-                Không có dữ liệu phù hợp
-            </p>
+        <h1>Danh sách danh mục</h1>
+{{--            <p class="alert alert-warning">--}}
+{{--                Không có dữ liệu phù hợp--}}
+{{--            </p>--}}
 
         <div class="box-body table-responsive no-padding">
             <form action="" method="post">
                 @csrf
-                <span class="pull-right">Tổng số bản ghi tìm thấy: <span
-                        style="font-size: 15px;font-weight: bold;">8</span></span>
+{{--                <span class="pull-right">Tổng số bản ghi tìm thấy: <span--}}
+{{--                        style="font-size: 15px;font-weight: bold;">8</span></span>--}}
                 <div class="clearfix"></div>
                 <div class="double-scroll">
                     <table class="table table-bordered">
@@ -160,7 +160,7 @@
                             <tr>
 
                                 <td class="text-center">{{$item -> id}}</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a></td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a></td>
 {{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
 {{--                                <td class="text-center">--}}
 {{--                                   nhân viên--}}
@@ -174,7 +174,7 @@
         </div>
         <br>
         <div class="text-center">
-            //phân trang
+{{--            //phân trang--}}
         </div>
         <index-cs ref="index_cs"></index-cs>
     </section>

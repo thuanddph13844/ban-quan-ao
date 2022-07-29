@@ -70,14 +70,13 @@
         @endif
 
         <!-- Phần nội dung riêng của action  -->
-        <form class="form-horizontal " action="" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal " action="{{route("route_BackEnd_danh_mucs_Update",['id'=>request()->route('id')])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Tên danh mục <span class="text-danger">(*)</span></label>
-
                             <div class="col-md-9 col-sm-8">
                                 <input type="text" name="name" id="name" class="form-control" value="{{$objItem -> name}}">
                                 <span id="mes_sdt"></span>

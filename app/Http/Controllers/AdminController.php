@@ -61,4 +61,25 @@ class AdminController extends Controller
         $this->v['objItem'] = $objItem;
         return view("admin.danh-muc.update", $this->v);
     }
+    public function update($id, Request $request){
+        $method_route = "route_BackEnd_danh_mucs_Detail";
+        $route_danhmuc = 'route_BackEnd_danh_mucs';
+        $params = [];
+        $params['cols'] = $request ->post();
+        unset($params['cols']['_token']);
+        $detail = new danh_mucs();
+        $objDetail = $detail->loadOne($id);
+        $params['cols']['id']= $id;
+        $res = $detail->saveUpdate($params);
+        if ($res == null) {
+            return redirect()->route($method_route, ['id' => $id]);
+        }elseif ($res == 1 ){
+            Session::flash('success','Cập nhật bản ghi ' .$objDetail->id . ' thành công');
+            return redirect() ->route($route_danhmuc);
+        }
+        else {
+            Session::flash('error','Cập nhật bản ghi ' .$objDetail->id . ' thất bại');
+            return redirect() ->route($method_route, ['id'=>$id]);
+        }
+    }
 }
