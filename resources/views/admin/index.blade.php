@@ -1,5 +1,5 @@
 @extends('templates.layout')
-@section('title', $tieude)
+@section('title', $title)
 @section('css')
     <style>
         body {
@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="form-group">
-                            <input type="text" name="search_ten_nguoi_dung" class="form-control" placeholder="Tên người dùng"
+                            <input type="text" name="search_ten_nguoi_dung" class="form-control" placeholder=""
                                    value="">
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             </button>
                             <a href="{{ url('/user') }}" class="btn btn-default btn-sm "><i class="fa fa-remove"></i>
                                 Clear </a>
-                            <a href="" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
+                            <a href="{{route('route_BackEnd_danh_mucs_Add')}}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
                                 Add new</a>
                         </div>
                     </div>
@@ -131,16 +131,16 @@
                 </div>
             @endif
         </div>
-
-            <p class="alert alert-warning">
-                Không có dữ liệu phù hợp
-            </p>
+        <h1>Danh sách danh mục</h1>
+{{--            <p class="alert alert-warning">--}}
+{{--                Không có dữ liệu phù hợp--}}
+{{--            </p>--}}
 
         <div class="box-body table-responsive no-padding">
             <form action="" method="post">
                 @csrf
-                <span class="pull-right">Tổng số bản ghi tìm thấy: <span
-                        style="font-size: 15px;font-weight: bold;">8</span></span>
+{{--                <span class="pull-right">Tổng số bản ghi tìm thấy: <span--}}
+{{--                        style="font-size: 15px;font-weight: bold;">8</span></span>--}}
                 <div class="clearfix"></div>
                 <div class="double-scroll">
                     <table class="table table-bordered">
@@ -148,33 +148,33 @@
                             <th style="width: 50px" class="text-center">
                                 #ID
                             </th>
-                            <th class="text-center">Tên người dùng</th>
-                            <th class="text-center">
-                                Email
-                            </th>
-                            <th class="text-center">Quyền</th>
-                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Tên danh mục</th>
+{{--                            <th class="text-center">--}}
+{{--                                Email--}}
+{{--                            </th>--}}
+{{--                            <th class="text-center">Quyền</th>--}}
+{{--                            <th class="text-center">Trạng thái</th>--}}
                         </tr>
 
-
+                         @foreach($danhsachdanhmuc as $item)
                             <tr>
-                                {{--                                <td><input type="checkbox" name="chk_hv[]" class="chk_hv" id="chk_hv_{{$item->id}}" value="{{$item->id}}"> </td>--}}
-                                <td class="text-center">1</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$hoten}} <i class="fa fa-edit"></i></a></td>
-                                <td class="text-center">thanghoang064@gmail.com</td>
-                                <td class="text-center">
-                                   nhân viên
-                                </td>
+
+                                <td class="text-center">{{$item -> id}}</td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a></td>
+{{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
+{{--                                <td class="text-center">--}}
+{{--                                   nhân viên--}}
+{{--                                </td>--}}
 
                             </tr>
-
+                        @endforeach
                     </table>
                 </div>
             </form>
         </div>
         <br>
         <div class="text-center">
-            //phân trang
+{{--            //phân trang--}}
         </div>
         <index-cs ref="index_cs"></index-cs>
     </section>
