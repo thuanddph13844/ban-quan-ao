@@ -86,7 +86,13 @@ class AdminController extends Controller
             return redirect()->route($method_route, ['id' => $id]);
         }
     }
+    public function delete($id){
+        $data = danh_mucs::find($id);
+        $data->delete();
+//        dd($data);
+        return redirect()->route('route_BackEnd_danh_mucs');
 
+    }
 
     public function shop()
     {

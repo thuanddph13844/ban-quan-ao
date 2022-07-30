@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title')</title> 
+    <title>@yield('title')</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -204,6 +204,9 @@
                         <li><a href=""><i
                                     class="fa fa-circle-o"></i> Người dùng</a></li>
                     </ul>
+                    <a href="#"><i class="fa fa-user"></i> <span> Sản phẩm</span></a>
+                    <a href="#"><i class="fa fa-user"></i> <span>Danh mục</span></a>
+                    <a href="#"><i class="fa fa-user"></i> <span>Đơn hàng </span></a>
                 </li>
             </ul>
         </section>

@@ -22,6 +22,7 @@ Route::match(['get', 'post'], 'danhmuc/add', 'AdminController@add')->name('route
 Route::get('danhmuc/detail/{id}', 'AdminController@detail')->name('route_BackEnd_danh_mucs_Detail');
 Route::post('/danhmuc/update/{id}', 'AdminController@update')
     ->name('route_BackEnd_danh_mucs_Update');
+Route::get('danhmuc/delete/{id}', 'AdminController@delete')->name('route_BackEnd_danh_mucs_Delete');
 Route::get('index', 'AdminController@index');
 Route::get('shop', 'AdminController@shop');
 Route::get('detail', 'AdminController@detailCl');

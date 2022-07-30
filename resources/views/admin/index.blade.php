@@ -160,7 +160,10 @@
                             <tr>
 
                                 <td class="text-center">{{$item -> id}}</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a></td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a>
+                                    <a href="{{route('route_BackEnd_danh_mucs_Delete',['id'=>$item->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                </td>
+                                </td>
 {{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
 {{--                                <td class="text-center">--}}
 {{--                                   nhân viên--}}
