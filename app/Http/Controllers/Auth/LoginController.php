@@ -32,7 +32,7 @@ class LoginController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
             if (Auth::attempt(['email' => $email, 'password' => $password])) {
-                return redirect('testAdmin');
+                return redirect('danhmuc/listdanhmuc');
             } else {
                 Session::flash('error', 'Email hoặc mật khẩu k đúng');
                 return redirect('login');
