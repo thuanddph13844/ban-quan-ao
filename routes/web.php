@@ -29,12 +29,21 @@ Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin'
 Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@postLogin']);
 Route::middleware(['auth'])->group(
     function () {
+        //danh muc
         Route::get('danhmuc/listdanhmuc', 'DanhMucController@loadList')->name('route_BackEnd_danh_mucs');
         Route::match(['get', 'post'], 'danhmuc/add', 'DanhMucController@add')->name('route_BackEnd_danh_mucs_Add');
         Route::get('danhmuc/detail/{id}', 'DanhMucController@detail')->name('route_BackEnd_danh_mucs_Detail');
         Route::post('/danhmuc/update/{id}', 'DanhMucController@update')
             ->name('route_BackEnd_danh_mucs_Update');
         Route::get('danhmuc/delete/{id}', 'DanhMucController@delete')->name('route_BackEnd_danh_mucs_Delete');
+
+        // sản phẩm
+        Route::get('sanpham/listsanpham', 'SanPhamController@loadList')->name('route_BackEnd_san_pham');
+        Route::match(['get', 'post'], 'sanpham/add', 'SanPhamController@add')->name('route_BackEnd_san_pham_Add');
+        Route::get('sanpham/detail/{id}', 'SanPhamController@detail')->name('route_BackEnd_san_pham_Detail');
+        Route::post('/sanpham/update/{id}', 'SanPhamController@update')
+            ->name('route_BackEnd_san_pham_Update');
+        Route::get('sanpham/delete/{id}', 'SanPhamController@delete')->name('route_BackEnd_san_pham_Delete');
     }
 );
 //đăng xuẩt
