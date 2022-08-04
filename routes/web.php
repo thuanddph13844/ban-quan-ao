@@ -18,11 +18,11 @@ Route::get('/', function () {
 });
 Route::get('testAdmin', 'DanhMucController@view');
 Route::get('index', 'AdminController@index');
-Route::get('shop', 'AdminController@shop');
-Route::get('detail', 'AdminController@detailCl');
-Route::get('contact', 'AdminController@contact');
-Route::get('checkout', 'AdminController@checkout');
-Route::get('cart', 'AdminController@cart');
+Route::get('shop', 'AdminController@shop') ->name('shop');
+Route::get('detail', 'AdminController@detailCl')->name('detail');
+Route::get('contact', 'AdminController@contact')->name('contact');
+Route::get('checkout', 'AdminController@checkout')->name('checkout');
+Route::get('cart', 'AdminController@cart')->name('cart');
 
 //login
 Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
@@ -48,3 +48,6 @@ Route::middleware(['auth'])->group(
 );
 //đăng xuẩt
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogout']);
+// client
+
+Route::get('add-to-cart/{id}', 'AdminController@addtocart') ->name('route_Frondten_user_addToCart');
