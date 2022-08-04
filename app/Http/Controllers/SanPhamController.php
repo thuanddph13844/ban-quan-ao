@@ -36,6 +36,9 @@ class SanPhamController extends Controller
     }
     public function add(SanPhamRequest $request)
     {
+        $danhmuc = new danh_mucs();
+        $listdm = $danhmuc->loadListWithPager();
+        $this->v['listdm'] = $listdm;
         $this->v['_title'] = "Thêm sản phẩm";
         $method_route = 'route_BackEnd_san_pham_Add';
         if ($request->isMethod('POST')) {

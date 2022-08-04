@@ -1,5 +1,5 @@
 @extends('templates.layout')
-@section('title', $_title)
+@section('title', $_title);
 @section('content')
     <!-- Main content -->
     <section class="content appTuyenSinh">
@@ -67,56 +67,50 @@
                     <span class="sr-only">Close</span>
                 </button>
             </div>
-    @endif
+        @endif
 
-    <!-- Phần nội dung riêng của action  -->
-        <form class="form-horizontal " action="" method="post" enctype="multipart/form-data">
+        <!-- Phần nội dung riêng của action  -->
+        <form class="form-horizontal " action="{{route("route_BackEnd_danh_mucs_Update",['id'=>request()->route('id')])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Tên sản phẩm <span class="text-danger">(*)</span></label>
+                            <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Tên Sản phẩm <span class="text-danger">(*)</span></label>
                             <div class="col-md-9 col-sm-8">
-                                <input type="text" name="name" id="name" class="form-control" value="@isset($request['name']){{ $request['name'] }}@endisset">
+                                <input type="text" name="name" id="name" class="form-control" value="{{$objItem -> name}}">
                                 <span id="mes_sdt"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Giá <span class="text-danger">(*)</span></label>
                             <div class="col-md-9 col-sm-8">
-                                <input type="text" name="price" id="price" class="form-control" value="@isset($request['price']){{ $request['price'] }}@endisset">
+                                <input type="text" name="name" id="name" class="form-control" value="{{$objItem -> price}}">
                                 <span id="mes_sdt"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Mô tả </label>
-                            <div class="col-md-9 col-sm-8">
-                                <input type="text" name="mo_ta" id="mo_ta" class="form-control" value="@isset($request['mo_ta']){{ $request['mo_ta'] }}@endisset">
-                                <span id="mes_sdt"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-3 col-sm-4 control-label">Ảnh</label>
+                            <label class="col-md-3 col-sm-4 control-label">Ảnh<span class="text-danger">(*)</span></label>
                             <div class="col-md-9 col-sm-8">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <img id="mat_truoc_preview" src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg" alt="your image"
-                                             style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-fluid"/>
-                                        <input type="file" name="cmt_mat_truoc" accept="image/*"
-                                               class="form-control-file @error('cmt_mat_truoc') is-invalid @enderror" id="cmt_truoc">
+                                        <img id="mat_truoc_preview"
+                                             src="{{ $objItem->image?''.Storage::url($objItem->image):'http://placehold.it/100x100' }}"
+                                             alt="your image"
+                                             style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-responsive"/>
                                         <label for="cmt_truoc">Mặt trước</label><br/>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                            <label for="">Danh mục</label>
-                            <select name="id_danhmuc" id="">
-                                @foreach($listdm as $cate)
-                                    <option value="{{$cate->id}}">{{$cate->name}}</option>
-                                @endforeach
-                            </select>
+                        <div class="form-group">
+                            <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Mô tả <span class="text-danger">(*)</span></label>
+                            <div class="col-md-9 col-sm-8">
+                                <input type="text" name="name" id="name" class="form-control" value="{{$objItem -> mo_ta}}">
+                                <span id="mes_sdt"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -124,7 +118,7 @@
             <!-- /.box-body -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary"> Save</button>
-{{--                <a href="{{ route('route_BackEnd_NguoiDung_index') }}" class="btn btn-default">Cancel</a>--}}
+                {{--                <a href="{{ route('route_BackEnd_NguoiDung_index') }}" class="btn btn-default">Cancel</a>--}}
             </div>
             <!-- /.box-footer -->
         </form>
@@ -134,24 +128,5 @@
 @section('script')
     <script src="{{ asset('default/plugins/input-mask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('default/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
-    <script>
-        $(function(){
-            function readURL(input, selector) {
-                if (input.files && input.files[0]) {
-                    let reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $(selector).attr('src', e.target.result);
-                    };
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#cmt_truoc").change(function () {
-                readURL(this, '#mat_truoc_preview');
-            });
-
-        });
-    </script>
 @endsection
 
