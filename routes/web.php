@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('testAdmin', 'DanhMucController@view');
-Route::get('index', 'AdminController@index');
+Route::get('index', 'AdminController@index') ->name('index');
 Route::get('shop', 'AdminController@shop') ->name('shop');
 Route::get('detail', 'AdminController@detailCl')->name('detail');
 Route::get('contact', 'AdminController@contact')->name('contact');

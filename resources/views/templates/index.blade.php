@@ -31,12 +31,7 @@
     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">About</a>
-                    <a class="text-body mr-3" href="">Contact</a>
-                    <a class="text-body mr-3" href="">Help</a>
-                    <a class="text-body mr-3" href="">FAQs</a>
-                </div>
+
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
@@ -47,14 +42,7 @@
                             <button class="dropdown-item" type="button">Sign up</button>
                         </div>
                     </div>
-                    <div class="btn-group mx-2">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">EUR</button>
-                            <button class="dropdown-item" type="button">GBP</button>
-                            <button class="dropdown-item" type="button">CAD</button>
-                        </div>
-                    </div>
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -95,10 +83,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 col-6 text-right">
-                <p class="m-0">Customer Service</p>
-                <h5 class="m-0">+012 345 6789</h5>
-            </div>
+
         </div>
     </div>
     <!-- Topbar End -->
@@ -133,7 +118,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.blade.php" class="nav-item nav-link active">Home</a>
+                            <a href="{{route('index')}}" class="nav-item nav-link active">Home</a>
                             <a href="{{route('shop')}}" class="nav-item nav-link">Shop</a>
                             <a href="{{route('detail')}}" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
@@ -143,16 +128,16 @@
                                     <a href="{{route('checkout')}}" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
+
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">
                                 <i class="fas fa-heart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
-                            <a href="" class="btn px-0 ml-3">
+                            <a href="{{route('cart')}}" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
                             </a>
                         </div>
                     </div>
@@ -265,165 +250,26 @@
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Danh Mục Sản Phẩm</span></h2>
-        <div class="row px-xl-5 pb-3">
+        <div class="row px-xl-5 pb-3">@foreach($itemCate as $item)
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="">
+
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
                             <img class="img-fluid" src="img/cat-1.jpg" alt="">
                         </div>
-                        @foreach($itemCate as $item)
+
                             <div class="flex-fill pl-3">
                                 <h6>{{$item -> name}}</h6>
                                 <small class="text-body">100 Products</small>
                             </div>
-                        @endforeach
+
                     </div>
+
                 </a>
             </div>
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-2.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-3.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-4.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-4.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-3.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-2.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-1.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-2.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-1.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-4.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <a class="text-decoration-none" href="">--}}
-{{--                    <div class="cat-item img-zoom d-flex align-items-center mb-4">--}}
-{{--                        <div class="overflow-hidden" style="width: 100px; height: 100px;">--}}
-{{--                            <img class="img-fluid" src="img/cat-3.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="flex-fill pl-3">--}}
-{{--                            <h6>Category Name</h6>--}}
-{{--                            <small class="text-body">100 Products</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
+            @endforeach
+
         </div>
     </div>
     <!-- Categories End -->
@@ -440,7 +286,7 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="{{ $itemProduct->image?''.Storage::url($itemProduct->image):'http://placehold.it/100x100' }}" WIDTH="227px" height="227px" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="{{route('route_Frondten_user_addToCart',['id'=> $itemProduct->id ])}}"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="{{route('route_Frondten_user_addToCart',['id'=>$itemProduct->id])}}"><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
@@ -464,195 +310,6 @@
 
             </div>
             @endforeach
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-2.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-3.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-4.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="{{asset('img/product-5.jpg')}}" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-6.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-7.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-8.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </div>
     <!-- Products End -->
@@ -686,265 +343,7 @@
     <!-- Offer End -->
 
 
-    <!-- Products Start -->
-{{--    <div class="container-fluid pt-5 pb-3">--}}
-{{--        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>--}}
-{{--        <div class="row px-xl-5">--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-1.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-2.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-3.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-4.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-5.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-6.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-7.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star-half-alt text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">--}}
-{{--                <div class="product-item bg-light mb-4">--}}
-{{--                    <div class="product-img position-relative overflow-hidden">--}}
-{{--                        <img class="img-fluid w-100" src="img/product-8.jpg" alt="">--}}
-{{--                        <div class="product-action">--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>--}}
-{{--                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="text-center py-4">--}}
-{{--                        <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mt-2">--}}
-{{--                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex align-items-center justify-content-center mb-1">--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="fa fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small class="far fa-star text-primary mr-1"></small>--}}
-{{--                            <small>(99)</small>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- Products End -->
 
-
-    <!-- Vendor Start -->
-    <div class="container-fluid py-5">
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel vendor-carousel">
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-1.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-2.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-3.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-4.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-5.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-6.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-7.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="img/vendor-8.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
 
 
     <!-- Footer Start -->
@@ -952,38 +351,14 @@
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                <p class="mb-4">Đây là cửa hàng bán quần áo</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Ngõ 59 Phạm Văn Đồng, Mai Dịch, Cầu Giấy, Hà Nội</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>thuanddph13844@fpt.edu.vn</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84327292046</p>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
-                        <p>Duo stet tempor ipsum sit amet magna ipsum tempor est</p>
                         <form action="">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Your Email Address">
@@ -1035,6 +410,18 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('js/main.js')}}"></script>
+{{--funtion script--}}
+    <script>
+        function addCart(id){
+            console.log(id);
+            $.ajax({
+                url:'add-to-cart/'+id,
+                type:'GET',
+            }).done(function (response){
+                console.log(response);
+            });
+        }
+    </script>
 </body>
 
 </html>

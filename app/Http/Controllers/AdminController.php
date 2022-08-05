@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\danh_mucRequest;
+use App\Models\Cart;
 use App\Models\san_pham;
 use Illuminate\Http\Request;
 use App\Models\danh_mucs;
@@ -105,6 +106,10 @@ class AdminController extends Controller
 
     public function shop()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
+        //
         $resPro = new san_pham();
         $product = $resPro->loadListWithPager();
         $this->v['product'] = $product;
@@ -115,6 +120,9 @@ class AdminController extends Controller
     }
     public function detailCl()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;
@@ -122,6 +130,9 @@ class AdminController extends Controller
     }
     public function contact()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;
@@ -129,6 +140,9 @@ class AdminController extends Controller
     }
     public function checkout()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;
@@ -136,9 +150,30 @@ class AdminController extends Controller
     }
     public function cart()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
+        //
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;
         return view('templates.cart', $this->v);
+    }
+    public function addtocart(Request $request ,$id){
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
+        $itemCart = new san_pham();
+        $item = $itemCart->loadOne($id);
+        if ($item != null){
+            $oldcart = Session('cart') ? Session('cart'):null;
+            $newcart = new Cart($oldcart);
+            $newcart ->addCart($item,$id);
+            $request ->session()->put('cart', $newcart);
+
+            $this->v['newcart'] = $newcart;
+        }
+
+        return view('templates.cart', $this -> v) ;
     }
 }
