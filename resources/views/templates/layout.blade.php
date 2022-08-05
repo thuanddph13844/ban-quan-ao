@@ -204,8 +204,8 @@
                         <li><a href=""><i
                                     class="fa fa-circle-o"></i> Người dùng</a></li>
                     </ul>
-                    <a href="#"><i class="fa fa-user"></i> <span> Sản phẩm</span></a>
-                    <a href="#"><i class="fa fa-user"></i> <span>Danh mục</span></a>
+                    <a href="{{route('route_BackEnd_san_pham')}}"><i class="fa fa-user"></i> <span> Sản phẩm</span></a>
+                    <a href="{{route('route_BackEnd_danh_mucs')}}"><i class="fa fa-user"></i> <span>Danh mục</span></a>
                     <a href="#"><i class="fa fa-user"></i> <span>Đơn hàng </span></a>
                 </li>
             </ul>

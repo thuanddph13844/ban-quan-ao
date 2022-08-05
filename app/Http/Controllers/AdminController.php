@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\danh_mucRequest;
+use App\Models\san_pham;
 use Illuminate\Http\Request;
 use App\Models\danh_mucs;
 use Illuminate\Support\Facades\Session;
@@ -19,6 +20,14 @@ class AdminController extends Controller
     }
     public function index()
     {
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
+        //product
+        $resPro = new san_pham();
+        $product = $resPro->loadListWithPager();
+        $this->v['product'] = $product;
+        //
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;
@@ -96,6 +105,9 @@ class AdminController extends Controller
 
     public function shop()
     {
+        $resPro = new san_pham();
+        $product = $resPro->loadListWithPager();
+        $this->v['product'] = $product;
         $this->v['tieude'] = "Admin";
         $hoten = "Đinh Đức Thuận";
         $this->v['hoten'] = $hoten;

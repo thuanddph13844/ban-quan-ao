@@ -83,7 +83,7 @@
                             </button>
                             <a href="{{ url('/user') }}" class="btn btn-default btn-sm "><i class="fa fa-remove"></i>
                                 Clear </a>
-                            <a href="{{route('route_BackEnd_danh_mucs_Add')}}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
+                            <a href="{{route('route_BackEnd_san_pham_Add')}}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
                                 Add new</a>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                 </div>
             @endif
         </div>
-        <h1>Danh sách sản phấm</h1>
+<h1>Danh sách sản phẩm</h1>
 {{--            <p class="alert alert-warning">--}}
 {{--                Không có dữ liệu phù hợp--}}
 {{--            </p>--}}
@@ -148,8 +148,11 @@
                             <th style="width: 50px" class="text-center">
                                 ID
                             </th>
-                            <th class="text-center">Tên sản phẩm</th>
-                          
+                            <th class="text-center">Tên danh mục</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">Hình</th>
+                             <th class="text-center">Mô tả</th>
+                             <th class="text-center">Thao tác</th>
 {{--                            <th class="text-center">--}}
 {{--                                Email--}}
 {{--                            </th>--}}
@@ -157,15 +160,24 @@
 {{--                            <th class="text-center">Trạng thái</th>--}}
                         </tr>
 
-                         @foreach($danhsachdanhmuc as $item)
+                         @foreach($danhsachsanpham as $item)
                             <tr>
 
                                 <td class="text-center">{{$item -> id}}</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a>
-                                    <a href="{{route('route_BackEnd_danh_mucs_Delete',['id'=>$item->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                <td class="text-center">
+                                    {{$item  -> name}} </td>
                                 </td>
-                                </td>
-{{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
+                               <td class="text-center">{{$item -> price}}</td>                            
+                                            <td><img id="mat_truoc_preview"
+                                                src="{{ $item -> image?''.Storage::url($item->image):'http://placehold.it/100x100' }}"
+                                                alt="your image"
+                                                class="img-responsive" width="200px"/>
+                                           </td>                                      
+                                </div>
+                            </div>
+                               <td class="text-center">{{$item -> mo_ta}}</td>
+                               <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_san_pham_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;">  <i class="fa fa-edit"></i></a>
+                                <a href="{{route('route_BackEnd_san_pham_Delete',['id'=>$item->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a></td>
 {{--                                <td class="text-center">--}}
 {{--                                   nhân viên--}}
 {{--                                </td>--}}
