@@ -44,6 +44,13 @@ Route::middleware(['auth'])->group(
         Route::post('/sanpham/update/{id}', 'SanPhamController@update')
             ->name('route_BackEnd_san_pham_Update');
         Route::get('sanpham/delete/{id}', 'SanPhamController@delete')->name('route_BackEnd_san_pham_Delete');
+        //banner
+        Route::get('banner/list', 'BannerController@loadList')->name('route_BackEnd_banner');
+        Route::match(['get', 'post'], 'banner/add', 'BannerController@add')->name('route_BackEnd_banner_Add');
+        Route::get('banner/detail/{id}', 'BannerController@detail')->name('route_BackEnd_banner_Detail');
+        Route::post('/banner/update/{id}', 'BannerController@update')
+            ->name('route_BackEnd_banner_Update');
+        Route::get('banner/delete/{id}', 'BannerController@delete')->name('route_BackEnd_banner_Delete');
     }
 );
 //đăng xuẩt
