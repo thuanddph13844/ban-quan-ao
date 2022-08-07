@@ -163,7 +163,7 @@
     </div>
     <!-- Breadcrumb End -->
 
-    @if($newcart != null)
+    @if(isset($newcart))
     <!-- Cart Start -->
     <div id="change-item-cart">
         <div class="container-fluid">
@@ -240,7 +240,8 @@
     </div>
     </div>
     <!-- Cart End -->
-
+    @elseif(!isset($newcart))
+            <H1>Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng</H1>
     @endif
     <!-- Footer Start -->
     <!-- Footer Start -->
