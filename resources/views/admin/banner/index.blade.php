@@ -83,7 +83,7 @@
                             </button>
                             <a href="{{ url('/user') }}" class="btn btn-default btn-sm "><i class="fa fa-remove"></i>
                                 Clear </a>
-                            <a href="{{route('route_BackEnd_danh_mucs_Add')}}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
+                            <a href="{{route('route_BackEnd_banner_Add')}}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
                                 Add new</a>
                         </div>
                     </div>
@@ -131,16 +131,16 @@
                 </div>
             @endif
         </div>
-        <h1>Danh sách sản phấm</h1>
-{{--            <p class="alert alert-warning">--}}
-{{--                Không có dữ liệu phù hợp--}}
-{{--            </p>--}}
+        <h1>Danh sách banner</h1>
+        {{--            <p class="alert alert-warning">--}}
+        {{--                Không có dữ liệu phù hợp--}}
+        {{--            </p>--}}
 
         <div class="box-body table-responsive no-padding">
             <form action="" method="post">
                 @csrf
-{{--                <span class="pull-right">Tổng số bản ghi tìm thấy: <span--}}
-{{--                        style="font-size: 15px;font-weight: bold;">8</span></span>--}}
+                {{--                <span class="pull-right">Tổng số bản ghi tìm thấy: <span--}}
+                {{--                        style="font-size: 15px;font-weight: bold;">8</span></span>--}}
                 <div class="clearfix"></div>
                 <div class="double-scroll">
                     <table class="table table-bordered">
@@ -148,27 +148,34 @@
                             <th style="width: 50px" class="text-center">
                                 ID
                             </th>
-                            <th class="text-center">Tên sản phẩm</th>
+                            <th class="text-center">Ảnh</th>
+                            <th class="text-center">Thao tác</th>
 
-{{--                            <th class="text-center">--}}
-{{--                                Email--}}
-{{--                            </th>--}}
-{{--                            <th class="text-center">Quyền</th>--}}
-{{--                            <th class="text-center">Trạng thái</th>--}}
+                            {{--                            <th class="text-center">--}}
+                            {{--                                Email--}}
+                            {{--                            </th>--}}
+                            {{--                            <th class="text-center">Quyền</th>--}}
+                            {{--                            <th class="text-center">Trạng thái</th>--}}
                         </tr>
 
-                         @foreach($danhsachdanhmuc as $item)
+                        @foreach($listbanner as $item)
                             <tr>
 
                                 <td class="text-center">{{$item -> id}}</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_danh_mucs_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> {{$item  -> name}} <i class="fa fa-edit"></i></a>
-                                    <a href="{{route('route_BackEnd_danh_mucs_Delete',['id'=>$item->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                <td class="text-center">
+                                    <img id="mat_truoc_preview"
+                                         src="{{ $item -> image?''.Storage::url($item->image):'http://placehold.it/100x100' }}"
+                                         alt="your image"
+                                         class="img-responsive" width="200px"/>
                                 </td>
+                                <td>
+                                    <a style="color:#333333;font-weight: bold;" href="{{route('route_BackEnd_banner_Detail',['id'=>$item->id])}}" style="white-space:unset;text-align: justify;"> <i class="fa fa-edit"></i></a>
+                                    <a href="{{route('route_BackEnd_banner_Delete',['id'=>$item->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 </td>
-{{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
-{{--                                <td class="text-center">--}}
-{{--                                   nhân viên--}}
-{{--                                </td>--}}
+                                {{--                                <td class="text-center">thanghoang064@gmail.com</td>--}}
+                                {{--                                <td class="text-center">--}}
+                                {{--                                   nhân viên--}}
+                                {{--                                </td>--}}
 
                             </tr>
                         @endforeach
@@ -178,7 +185,7 @@
         </div>
         <br>
         <div class="text-center">
-{{--            //phân trang--}}
+            {{--            //phân trang--}}
         </div>
         <index-cs ref="index_cs"></index-cs>
     </section>
