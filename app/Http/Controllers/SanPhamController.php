@@ -66,7 +66,7 @@ class SanPhamController extends Controller
     }
     public function detail($id)
     {
-        $this->v['_title'] = "Cập nhật danh mục";
+        $this->v['_title'] = "aaaaa";
         $item = new san_pham();
         $objItem = $item->loadOne($id);
         // dd($objItem);

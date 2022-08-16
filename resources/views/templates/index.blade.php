@@ -293,7 +293,7 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">{{$itemProduct->name}}</a>
+                        <a class="h6 text-decoration-none text-truncate" href="{{route('route_Fronten_user_detaiLProduct', $itemProduct->id)}}">{{$itemProduct->name}}</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>{{$itemProduct -> price}}</h5><h6 class="text-muted ml-2"><del>{{$itemProduct -> price}}</del></h6>
                         </div>

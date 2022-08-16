@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\san_pham;
 use Illuminate\Http\Request;
 use App\Models\danh_mucs;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use phpDocumentor\Reflection\DocBlock\Description;
 use phpDocumentor\Reflection\Element;
@@ -175,5 +176,23 @@ class AdminController extends Controller
         }
 
         return view('templates.cart', $this -> v) ;
+    }
+    public function productDetail($id){
+
+        $Category = new danh_mucs();
+        $itemCate = $Category->loadListWithPager();
+        $this->v['itemCate'] = $itemCate;
+        $users = DB::table('san_phams')
+            ->join('chi_tiet_size',  'chi_tiet_size.id_sanpham', '=', 'san_phams.id')
+            ->join('sizes', 'sizes.id', '=', 'chi_tiet_size.id_size')->select()
+            ->where('san_phams.id', '=', $id)
+            ->get();
+        $this->v['detailProduct'] = $users;
+//dd($users);
+        $item = new san_pham();
+        $objItem = $item->loadOne($id);
+//        dd($objItem);
+        $this->v['objItem'] = $objItem;
+        return view('templates.detail',$this->v);
     }
 }

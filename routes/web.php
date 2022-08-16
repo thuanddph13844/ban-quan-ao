@@ -58,3 +58,4 @@ Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@getLogo
 // client
 
 Route::get('add-to-cart/{id}', 'AdminController@addtocart') ->name('route_Frondten_user_addToCart');
+Route::get('product/detail/{id}','AdminController@productDetail') -> name('route_Fronten_user_detaiLProduct');
